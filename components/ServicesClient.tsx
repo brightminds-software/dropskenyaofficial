@@ -202,7 +202,20 @@ export default function ServicesClient({ audioData }: Props) {
 
     try {
       audio.pause();
-      const src = `/api/audio?folder=${drop.id}&file=${encodeURIComponent(samples[0])}`;
+
+      // Use direct public paths instead of API route
+      // Map each drop to its exact filename
+      const fileNames: Record<string, string> = {
+        wigman: "Wigman-Sound.mp3",
+        velvet: "Velvet-Sound.MP3",
+        titan: "Titan-Sound.mp3",
+        alexander: "Official Alexander Sound.MP3",
+        ashley: "Official Ashley Voice.MP3",
+      };
+
+      const fileName = fileNames[drop.id] || samples[0];
+      const src = `/audio/${drop.id}/${encodeURIComponent(fileName)}`;
+
       audio.src = src;
       audio.currentTime = 0;
       setAudioProgress(0);

@@ -10,6 +10,7 @@ import Blog from "@/components/Blog";
 import Faqs from "@/components/Faqs";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import SoundEffectsWrapper from "@/components/SoundEffectsWrapper";
 
 export default function Home() {
   return (
@@ -27,7 +28,7 @@ export default function Home() {
       <CallToAction />
 
       {/* Sound Effects Section */}
-      <SoundEffects />
+      <SoundEffectsWrapper />
 
       {/* Services Section (DJ Drops) */}
       <Services />
